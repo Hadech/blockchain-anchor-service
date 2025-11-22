@@ -1,0 +1,35 @@
+# Dependencies
+node_modules/
+contracts/node_modules/
+
+# Build
+dist/
+contracts/artifacts/
+contracts/cache/
+contracts/typechain-types/
+
+# Logs
+logs/
+*.log
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Docker
+docker-compose.override.yml
+
+# Misc
+*.bak
+src/config/contract-address.json
