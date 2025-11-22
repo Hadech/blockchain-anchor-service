@@ -32,11 +32,6 @@ export const anchorWorker = new Worker(
       max: 5,
       duration: 1000,
     },
-    attempts: 3,
-    backoff: {
-      type: 'exponential',
-      delay: 3000,
-    },
   }
 );
 
@@ -59,6 +54,11 @@ export async function enqueuePaymentForAnchor(paymentId: string) {
     {
       removeOnComplete: 100,
       removeOnFail: 500,
+      attempts: 3,
+      backoff: {
+        type: 'exponential',
+        delay: 3000,
+      },
     }
   );
   

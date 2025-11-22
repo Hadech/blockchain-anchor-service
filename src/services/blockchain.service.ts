@@ -55,7 +55,7 @@ export class BlockchainService {
         currency,
         executedAt,
         {
-          gasLimit: 200000,
+          gasLimit: 500000,
         }
       );
 
