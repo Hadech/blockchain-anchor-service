@@ -29,9 +29,9 @@ Componentes principales:
 
 Asegúrate de tener instalado:
 
-- **Node.js** v18+  
-- **npm** v9+  
-- **Docker** y **docker-compose** v2+  
+- **Node.js** v18+
+- **npm** v9+
+- **Docker** y **docker-compose** v2+
 
 Verificación rápida:
 
@@ -164,12 +164,14 @@ Orquesta el flujo de anclaje de un pago FIAT:
 ### 5.5. Controllers y Rutas
 
 - **PaymentController**
+
   - `POST /api/payments` → Crea un pago (estado `PENDING`).
   - `POST /api/payments/:id/complete` → Marca el pago como `COMPLETED` y lo encola para anclaje.
   - `GET /api/payments/:id` → Obtiene un pago.
   - `GET /api/payments` → Lista pagos recientes.
 
 - **VerificationController**
+
   - `GET /api/verify/:externalId` → Verifica el anclaje de un pago, tanto off-chain como on-chain.
 
 - **HealthController**
@@ -220,16 +222,19 @@ La sincronización del schema (en desarrollo) la hace TypeORM (`synchronize: tru
 En `docker-compose.yml` se definen:
 
 - **ganache**
+
   - Imagen: `trufflesuite/ganache`
   - Puerto: `8545`
   - Preconfigurado con cuentas y fondos de prueba.
 
 - **postgres**
+
   - Imagen: `postgres:15-alpine`
   - Puerto: `5432`
   - DB: `anchor_db`, usuario `postgres`, pass `postgres123` (para desarrollo).
 
 - **redis**
+
   - Imagen: `redis:7-alpine`
   - Puerto: `6379`
 
@@ -496,7 +501,11 @@ Respuesta de ejemplo:
 1. **Levantar infraestructura y servicio**
 
    ```bash
-   ./scripts/init.sh
+    chmod +x ./init.sh && ./init.sh
+   ```
+
+   ```bash
+    ./scripts/init.sh
    ```
 
 2. **Crear un pago** (`PENDING`)
@@ -580,6 +589,7 @@ docker-compose restart anchor-service
   ```bash
   docker-compose logs postgres
   ```
+
 - Asegurarse de que el servicio `anchor-service` se levante **después** de que PostgreSQL esté `healthy` (configurado en `docker-compose.yml`).
 
 ### Worker no procesa jobs
